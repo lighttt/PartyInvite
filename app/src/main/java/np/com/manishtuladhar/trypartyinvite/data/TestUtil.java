@@ -17,27 +17,27 @@ public class TestUtil {
         List<ContentValues> list = new ArrayList<ContentValues>();
 
         ContentValues cv = new ContentValues();
-        cv.put(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME, "John");
+        cv.put(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME, "Ram");
         cv.put(WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE, 12);
         list.add(cv);
 
         cv = new ContentValues();
-        cv.put(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME, "Tim");
+        cv.put(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME, "Saroj");
         cv.put(WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE, 2);
         list.add(cv);
 
         cv = new ContentValues();
-        cv.put(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME, "Jessica");
+        cv.put(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME, "Hari");
         cv.put(WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE, 99);
         list.add(cv);
 
         cv = new ContentValues();
-        cv.put(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME, "Larry");
+        cv.put(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME, "Samip");
         cv.put(WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE, 1);
         list.add(cv);
 
         cv = new ContentValues();
-        cv.put(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME, "Kim");
+        cv.put(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME, "Manish");
         cv.put(WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE, 45);
         list.add(cv);
 

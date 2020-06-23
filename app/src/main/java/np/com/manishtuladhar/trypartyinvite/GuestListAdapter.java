@@ -1,6 +1,7 @@
 package np.com.manishtuladhar.trypartyinvite;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,14 +9,16 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import np.com.manishtuladhar.trypartyinvite.data.WaitlistContract;
+
 
 public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.GuestViewHolder> {
 
     private Context mContext;
-    private int mCount;
-    public GuestListAdapter(Context context,int count) {
+    private Cursor mCursor;
+    public GuestListAdapter(Context context,Cursor cursor) {
         this.mContext = context;
-        this.mCount = count;
+        this.mCursor = cursor;
     }
 
     @Override
@@ -27,13 +30,25 @@ public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.Gues
 
     @Override
     public void onBindViewHolder(GuestViewHolder holder, int position) {
-
+        //Move the cursor to the passed in position, return if moveToPosition returns false
+        if (!mCursor.moveToPosition(position))
+        {
+            return;
+        }
+        //get the guest's name
+        String name = mCursor.getString(mCursor.getColumnIndex(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME));
+        // get the party size
+        int partySize = mCursor.getInt(mCursor.getColumnIndex(WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE));
+        // nameTextView text to the guest's name
+        holder.nameTextView.setText(name);
+        // Display the party count
+        holder.partySizeTextView.setText(String.valueOf(partySize));
     }
 
 
     @Override
     public int getItemCount() {
-        return mCount;
+        return mCursor.getCount();
     }
 
 

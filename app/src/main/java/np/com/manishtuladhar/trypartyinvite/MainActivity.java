@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = getAllGuests();
 
 
-        mAdapter = new GuestListAdapter(this,cursor.getCount());
+        mAdapter = new GuestListAdapter(this,cursor);
         waitlistRecyclerView.setAdapter(mAdapter);
 
     }
