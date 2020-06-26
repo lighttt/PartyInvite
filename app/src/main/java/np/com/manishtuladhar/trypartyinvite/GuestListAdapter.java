@@ -39,12 +39,30 @@ public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.Gues
         String name = mCursor.getString(mCursor.getColumnIndex(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME));
         // get the party size
         int partySize = mCursor.getInt(mCursor.getColumnIndex(WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE));
+        long id = mCursor.getLong(mCursor.getColumnIndex(WaitlistContract.WaitlistEntry._ID));
+
         // nameTextView text to the guest's name
         holder.nameTextView.setText(name);
         // Display the party count
         holder.partySizeTextView.setText(String.valueOf(partySize));
+        holder.itemView.setTag(id);
     }
 
+    /**
+     * Swaps the Cursor currently held in the adapter with a new one
+     * and triggers a UI refresh
+     *
+     * @param newCursor the new cursor that will replace the existing one
+     */
+    public void swapCursor(Cursor newCursor) {
+        // Always close the previous mCursor first
+        if (mCursor != null) mCursor.close();
+        mCursor = newCursor;
+        if (newCursor != null) {
+            // Force the RecyclerView to refresh
+            this.notifyDataSetChanged();
+        }
+    }
 
     @Override
     public int getItemCount() {
@@ -66,4 +84,6 @@ public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.Gues
         }
 
     }
+
+
 }
