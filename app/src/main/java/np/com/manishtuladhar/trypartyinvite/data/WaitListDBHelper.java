@@ -25,11 +25,11 @@ public class WaitListDBHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        final String SQL_CREATE_WAITLIST_TABLE = "CREATE TABLE " + WaitlistContract.WaitlistEntry.TABLE_NAME + " (" +
-                WaitlistContract.WaitlistEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME + " TEXT NOT NULL, " +
-                WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE + " INTEGER NOT NULL, " +
-                WaitlistContract.WaitlistEntry.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
+        final String SQL_CREATE_WAITLIST_TABLE = "CREATE TABLE " + WaitListContract.WaitListEntry.TABLE_NAME + " (" +
+                WaitListContract.WaitListEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                WaitListContract.WaitListEntry.COLUMN_GUEST_NAME + " TEXT NOT NULL, " +
+                WaitListContract.WaitListEntry.COLUMN_PARTY_SIZE + " INTEGER NOT NULL, " +
+                WaitListContract.WaitListEntry.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
                 "); ";
 
         sqLiteDatabase.execSQL(SQL_CREATE_WAITLIST_TABLE);
@@ -40,7 +40,7 @@ public class WaitListDBHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + WaitlistContract.WaitlistEntry.TABLE_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + WaitListContract.WaitListEntry.TABLE_NAME);
         onCreate(sqLiteDatabase);
     }
 }

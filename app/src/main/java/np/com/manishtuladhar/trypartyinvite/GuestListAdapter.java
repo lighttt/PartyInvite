@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import np.com.manishtuladhar.trypartyinvite.data.WaitlistContract;
+import np.com.manishtuladhar.trypartyinvite.data.WaitListContract;
 
 
 public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.GuestViewHolder> {
@@ -36,10 +36,10 @@ public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.Gues
             return;
         }
         //get the guest's name
-        String name = mCursor.getString(mCursor.getColumnIndex(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME));
+        String name = mCursor.getString(mCursor.getColumnIndex(WaitListContract.WaitListEntry.COLUMN_GUEST_NAME));
         // get the party size
-        int partySize = mCursor.getInt(mCursor.getColumnIndex(WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE));
-        long id = mCursor.getLong(mCursor.getColumnIndex(WaitlistContract.WaitlistEntry._ID));
+        int partySize = mCursor.getInt(mCursor.getColumnIndex(WaitListContract.WaitListEntry.COLUMN_PARTY_SIZE));
+        long id = mCursor.getLong(mCursor.getColumnIndex(WaitListContract.WaitListEntry._ID));
 
         // nameTextView text to the guest's name
         holder.nameTextView.setText(name);
